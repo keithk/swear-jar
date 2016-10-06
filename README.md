@@ -21,7 +21,7 @@ $ npm install
 
 ### Installing
 
-With npm and gulp installed, you're good to go. To compile the source files into `dist` run:
+With npm and gulp installed, you're good to go. To compile the source files into `docs` run:
 
 ```sh
 $ gulp
@@ -33,13 +33,17 @@ For development, you can compile the files and view the project in your browser 
 $ gulp serve
 ```
 
-This will serve the site using local files in the `app` directory, as well as a generated `.tmp` directory. To view the site using compiled files in the `dist` directory, you can do:
+This will serve the site using local files in the `app` directory, as well as a generated `.tmp` directory. To view the site using compiled files in the `docs` directory, you can do:
 
 ```sh
-$ gulp serve:dist
+$ gulp serve:docs
 ```
 
-the `dist` directory is the final directory to be compiled and deployed to production.
+the `docs` directory is the final directory to be compiled and deployed to production.
+
+### Deployment
+
+TODO: Fill this out.
 
 ## Built With
 

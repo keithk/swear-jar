@@ -80,7 +80,7 @@ import jQuery from 'jquery';
     const submitText = $submitButton.html();
 
     /** {RegExp} A simple email validation. */
-    const emailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    const emailRegex = /.+@.+/;
 
     e.preventDefault();
     $form.find('.form-message').addClass('hidden');

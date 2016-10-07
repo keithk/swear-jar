@@ -11,6 +11,12 @@ html(lang='en-us')
     link(href='https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css', rel='stylesheet', type='text/css')
     link(href='https://fonts.googleapis.com/css?family=Open+Sans:400,700', rel='stylesheet', type='text/css')
     link(href='css/main.css', rel='stylesheet', type='text/css')
+    link(rel='apple-touch-icon', sizes='180x180', href='/apple-touch-icon.png')
+    link(rel='icon', type='image/png', href='/favicon-32x32.png', sizes='32x32')
+    link(rel='icon', type='image/png', href='/favicon-16x16.png', sizes='16x16')
+    link(rel='manifest', href='/manifest.json')
+    link(rel='mask-icon', href='/safari-pinned-tab.svg', color='#ef8c20')
+    meta(name='theme-color', content='#ffffff')
     meta(name='description', content=metaDescription)
     meta(property='og:url', content=siteUrl)
     meta(property='og:type', content='website')
@@ -18,31 +24,29 @@ html(lang='en-us')
     meta(property='og:description', content=metaDescription)
     meta(property='og:image', content='https://c1.staticflickr.com/9/8105/8567825104_e14db572a1_k.jpg')
   body
-    header#hero.hero
-      .container
+    main.body-main
+      .container-fluid
         .row
-          h1#banner Donate a quarter to Hillary every time Trump tweets.
-    main
-      .container
+          .col-xs-12
+            h1.main-header Donate a quarter to Hillary every time Trump tweets.
         .row
-          .col-xs-12.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3.main-content
+          .col-xs-12.main-content
             form#signup(action='https://script.google.com/macros/s/AKfycbyTuqk69p3R7v419Vhuqb8g1soBW5NrxbqkUvcU2gwB1nmlnpQ/exec', method='POST')
+              legend.form-header Sign me the f*ck up!
               .form-row
                 .form-group
                   label.sr-only Email address
-                  input#email.form-control(type='email', name='email', placeholder='email', required)
+                  input#email.form-control(type='email', name='email', placeholder='Email address', required)
                 .form-submit
-                  button.btn.btn-submit.btn-success Pledge
+                  button.btn.btn-submit Pledge
               p#invalid-email.form-message.bg-danger.hidden Please enter a valid email.
               p#server-error.form-message.bg-danger.hidden Something went wrong. Please try again.
               p#email-success.form-message.bg-success.hidden Thanks!
             p
-              | Pledge a quarter for each time Trump tweets something ... Trumpy. We'll tally up the tweets and remind you once a week. Unsubscribe at any time! Your email will not be shared or used for any other purpose.
-            p
+              | Pledge a quarter for each time Trump tweets something &hellip; Trumpy. We'll tally up the tweets and remind you once a week. Unsubscribe at any time! Your email will not be shared or used for any other purpose.
             .fb-like(data-href=siteUrl, data-layout='button_count', data-action='like', data-size='large' data-show-faces='false', data-share='true')
-    footer
-      | #[a(href='http://devprogress.us') DevProgress] is an independent group fighting Trump and supporting progressive causes nationwide.
-      | Image by #[a(href='https://www.flickr.com/photos/gageskidmore') Gage Skidmore]
+    footer.body-footer
+      | Build by DevProgress, an independent group fighting Trump and supporting progressive causes nationwide. #[a(href='http://devprogress.us') Learn More].
     script(src='js/main.min.js')
     // Load Facebook SDK for JavaScript
     #fb-root

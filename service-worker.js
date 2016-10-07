@@ -31,7 +31,7 @@ importScripts("js/sw/sw-toolbox.js","js/sw/runtime-caching.js");
 
 
 /* eslint-disable quotes, comma-spacing */
-var PrecacheConfig = [["css/main.css","882f1d8035aeea0562352c3888a015de"],["index.html","67b64ffecb2863e8253acf1bc30b1568"],["js/main.min.js","43ab2173b621266e661a077d8da1c765"],["js/sw/runtime-caching.js","e3e34dcb62b5d62453b9215961585488"],["js/sw/sw-toolbox.js","1ca0f60210ecd50f5b6b80ebc325e7c3"],["manifest.json","30d402e280a04e6fe03b32da34c70890"]];
+var PrecacheConfig = [["css/main.css","4936726d8c1d451019c3a45241e82b09"],["img/icon-twitter.svg","e98d74382482805d05147c009f069138"],["index.html","817f93d0c304a45fc9ed4d530d5125f8"],["js/main.min.js","a1c4153696ba16a4b3fb30a72da66512"],["js/sw/runtime-caching.js","e3e34dcb62b5d62453b9215961585488"],["js/sw/sw-toolbox.js","1ca0f60210ecd50f5b6b80ebc325e7c3"],["manifest.json","db6252f40efa46e750b4a4b217ff3484"]];
 /* eslint-enable quotes, comma-spacing */
 var CacheNamePrefix = 'sw-precache-v1-web-starter-kit-' + (self.registration ? self.registration.scope : '') + '-';
 

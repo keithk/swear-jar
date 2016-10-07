@@ -43,9 +43,10 @@ body {
   }
 }
 
-main {
+.body-main {
   background: $color-blue;
   color: $color-white;
+  padding-bottom: 40px;
   @include flex(1);
 
   @media screen and (min-width: $bp-tablet) {
@@ -60,6 +61,11 @@ main {
 .main-header {
   font-weight: $font-weight-bold;
   margin-bottom: 1em;
+
+  img {
+    height: .67em;
+    vertical-align: baseline;
+  }
 }
 
 .form-header {
@@ -103,7 +109,7 @@ main {
   }
 }
 
-footer{
+.body-footer{
   background-color: $color-black;
   color: $color-white;
   font-size: $font-size-small;

@@ -107,4 +107,16 @@ import jQuery from 'jquery';
       submissionInProgress = false;
     });
   });
+
+  $(document).on('click', '.share-fb', e => {
+    e.preventDefault();
+    const shareMessage = $(e.currentTarget).data('message') || '';
+    const shareUrl = $(e.currentTarget).data('url') || window.location;
+
+    window.FB.ui({
+      method: 'share',
+      href: shareUrl,
+      quote: shareMessage
+    });
+  });
 })(window, jQuery);

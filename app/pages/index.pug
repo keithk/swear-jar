@@ -1,6 +1,7 @@
-- var siteUrl = 'http://www.IfIHadAQuarter.com';
-- var siteTitle = 'Donate to Hillary for each tweet by Trump!'
-- var metaDescription = 'Sign up to donate to Hillary for each tweet by Trump!'
+- var siteUrl = 'http://ifihadaquarter.com';
+- var siteTitle = 'Donate to Hillary for each tweet by Trump!';
+- var metaDescription = 'Sign up to donate to Hillary for each tweet by Trump!';
+- var fbShareMsg = `I'm donating a quarter to Hillary every time Trump tweets!`;
 
 doctype html
 html(lang='en-us')
@@ -44,18 +45,27 @@ html(lang='en-us')
               p#email-success.form-message.bg-success.hidden Thanks!
             p
               | Pledge a quarter for each time Trump tweets something &hellip; Trumpy. We'll tally up the tweets and remind you once a week. Unsubscribe at any time! Your email will not be shared or used for any other purpose.
-            .fb-like(data-href=siteUrl, data-layout='button_count', data-action='like', data-size='large' data-show-faces='false', data-share='true')
+            p
+              button.btn.btn-share.share-fb(type='button', data-message=fbShareMsg, data-url=siteUrl)
+                | #[img(src='/img/icon-fb.svg', alt='')] Share
     footer.body-footer
       | Built by #[a(href='http://devprogress.us') DevProgress], an independent group fighting Trump and supporting progressive causes nationwide.
       | Image by #[a(href='https://www.flickr.com/photos/gageskidmore') Gage Skidmore].
     script(src='js/main.min.js')
     // Load Facebook SDK for JavaScript
-    #fb-root
     script.
-      (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
-      fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1874284682800311',
+          xfbml      : true,
+          version    : 'v2.8'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));

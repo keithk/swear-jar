@@ -94,7 +94,8 @@ body {
   padding: 10px;
 }
 
-.btn-submit {
+.btn-submit,
+.btn-share {
   background: $color-blue-light;
   color: $color-white;
   font-weight: $font-weight-bold;
@@ -106,6 +107,14 @@ body {
     background: lighten($color-blue-light, 10%);
     color: $color-white;
     outline: none;
+  }
+}
+
+.btn-share {
+  img {
+    height: 1em;
+    vertical-align: baseline;
+    @include position(relative, .1em null null null);
   }
 }
 

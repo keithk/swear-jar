@@ -116,7 +116,7 @@ import jQuery from 'jquery';
     const shareOptions = {
       method: 'share',
       href: shareUrl
-    }
+    };
 
     if (shareMessage) {
       shareOptions.quote = shareMessage;

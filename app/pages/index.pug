@@ -1,6 +1,7 @@
-- var siteUrl = 'http://www.IfIHadAQuarter.com';
-- var siteTitle = 'Donate to Hillary for each tweet by Trump!'
-- var metaDescription = 'Sign up to donate to Hillary for each tweet by Trump!'
+- var siteUrl = 'http://ifihadaquarter.com';
+- var siteTitle = 'Donate to Hillary for each tweet by Trump!';
+- var metaDescription = 'Sign up to donate to Hillary for each tweet by Trump!';
+- var fbShareMsg = `I'm donating a quarter to Hillary every time Trump tweets!`;
 
 doctype html
 html(lang='en-us')
@@ -22,7 +23,7 @@ html(lang='en-us')
     meta(property='og:type', content='website')
     meta(property='og:title', content=siteTitle)
     meta(property='og:description', content=metaDescription)
-    meta(property='og:image', content='https://c1.staticflickr.com/9/8105/8567825104_e14db572a1_k.jpg')
+    meta(property='og:image', content=`${siteUrl}/img/share.png`)
   body
     main.body-main
       .container-fluid
@@ -32,7 +33,7 @@ html(lang='en-us')
         .row
           .col-xs-12.main-content
             form#signup(action='https://script.google.com/macros/s/AKfycbyTuqk69p3R7v419Vhuqb8g1soBW5NrxbqkUvcU2gwB1nmlnpQ/exec', method='POST')
-              legend.form-header Sign me the f*ck up!
+              legend.form-header Sign me up!
               .form-row
                 .form-group
                   label.sr-only Email address
@@ -41,20 +42,37 @@ html(lang='en-us')
                   button.btn.btn-submit Pledge
               p#invalid-email.form-message.bg-danger.hidden Please enter a valid email.
               p#server-error.form-message.bg-danger.hidden Something went wrong. Please try again.
-              p#email-success.form-message.bg-success.hidden Thanks!
             p
               | Pledge a quarter for each time Trump tweets something &hellip; Trumpy. We'll tally up the tweets and remind you once a week. Unsubscribe at any time! Your email will not be shared or used for any other purpose.
-            .fb-like(data-href=siteUrl, data-layout='button_count', data-action='like', data-size='large' data-show-faces='false', data-share='true')
+            p
+              button.btn.btn-share.share-fb(type='button', data-url=siteUrl)
+                | #[img(src='/img/icon-fb.svg', alt='')] Share on Facebook
     footer.body-footer
-      | Build by DevProgress, an independent group fighting Trump and supporting progressive causes nationwide. #[a(href='http://devprogress.us') Learn More].
+      | Built by #[a(href='http://devprogress.us') DevProgress], an independent group fighting Trump and supporting progressive causes nationwide.
+      | Image by #[a(href='https://www.flickr.com/photos/gageskidmore') Gage Skidmore].
+    #email-success.overlay.confirmation-container.hidden
+      .confirmation-overlay.close-overlay
+      .confirmation-body
+        p Thanks for pledging! You'll be getting an email soon letting you know what Trump's been up to in the Twitterverse and how much we need to fight back. Until then, why not tell your friends?
+        button.btn.btn-share.share-fb(type='button', data-message=fbShareMsg, data-url=siteUrl)
+            | #[img(src='/img/icon-fb.svg', alt='')] Share on Facebook
+        button.btn.btn-close.close-overlay &times;
+
     script(src='js/main.min.js')
     // Load Facebook SDK for JavaScript
-    #fb-root
     script.
-      (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
-      fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1874284682800311',
+          xfbml      : true,
+          version    : 'v2.8'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));

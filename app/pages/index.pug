@@ -23,7 +23,7 @@ html(lang='en-us')
     meta(property='og:type', content='website')
     meta(property='og:title', content=siteTitle)
     meta(property='og:description', content=metaDescription)
-    meta(property='og:image', content='https://c1.staticflickr.com/9/8105/8567825104_e14db572a1_k.jpg')
+    meta(property='og:image', content=`${siteUrl}/img/share.png`)
   body
     main.body-main
       .container-fluid
@@ -42,15 +42,22 @@ html(lang='en-us')
                   button.btn.btn-submit Pledge
               p#invalid-email.form-message.bg-danger.hidden Please enter a valid email.
               p#server-error.form-message.bg-danger.hidden Something went wrong. Please try again.
-              p#email-success.form-message.bg-success.hidden Thanks!
             p
               | Pledge a quarter for each time Trump tweets something &hellip; Trumpy. We'll tally up the tweets and remind you once a week. Unsubscribe at any time! Your email will not be shared or used for any other purpose.
             p
-              button.btn.btn-share.share-fb(type='button', data-message=fbShareMsg, data-url=siteUrl)
-                | #[img(src='/img/icon-fb.svg', alt='')] Share
+              button.btn.btn-share.share-fb(type='button', data-url=siteUrl)
+                | #[img(src='/img/icon-fb.svg', alt='')] Share on Facebook
     footer.body-footer
       | Built by #[a(href='http://devprogress.us') DevProgress], an independent group fighting Trump and supporting progressive causes nationwide.
       | Image by #[a(href='https://www.flickr.com/photos/gageskidmore') Gage Skidmore].
+    #email-success.overlay.confirmation-container.hidden
+      .confirmation-overlay.close-overlay
+      .confirmation-body
+        p Thanks for pledging! You'll be getting an email soon letting you know what Trump's been up to in the Twitterverse and how much we need to fight back. Until then, why not tell your friends?
+        button.btn.btn-share.share-fb(type='button', data-message=fbShareMsg, data-url=siteUrl)
+            | #[img(src='/img/icon-fb.svg', alt='')] Share on Facebook
+        button.btn.btn-close.close-overlay &times;
+
     script(src='js/main.min.js')
     // Load Facebook SDK for JavaScript
     script.

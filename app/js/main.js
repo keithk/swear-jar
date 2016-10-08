@@ -110,13 +110,27 @@ import jQuery from 'jquery';
 
   $(document).on('click', '.share-fb', e => {
     e.preventDefault();
-    const shareMessage = $(e.currentTarget).data('message') || '';
+    const shareMessage = $(e.currentTarget).data('message');
     const shareUrl = $(e.currentTarget).data('url') || window.location;
 
-    window.FB.ui({
+    const shareOptions = {
       method: 'share',
-      href: shareUrl,
-      quote: shareMessage
+      href: shareUrl
+    }
+
+    if (shareMessage) {
+      shareOptions.quote = shareMessage;
+    }
+
+    window.FB.ui(shareOptions, function() {
+      const $overlayParent = $(e.currentTarget).parents('.overlay');
+      if ($overlayParent.length) {
+        $overlayParent.addClass('hidden');
+      }
     });
+  });
+
+  $('.overlay').on('click', '.close-overlay', e => {
+    $(e.delegateTarget).addClass('hidden');
   });
 })(window, jQuery);

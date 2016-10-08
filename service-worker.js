@@ -31,7 +31,7 @@ importScripts("js/sw/sw-toolbox.js","js/sw/runtime-caching.js");
 
 
 /* eslint-disable quotes, comma-spacing */
-var PrecacheConfig = [["css/main.css","4936726d8c1d451019c3a45241e82b09"],["img/icon-twitter.svg","e98d74382482805d05147c009f069138"],["index.html","817f93d0c304a45fc9ed4d530d5125f8"],["js/main.min.js","a1c4153696ba16a4b3fb30a72da66512"],["js/sw/runtime-caching.js","e3e34dcb62b5d62453b9215961585488"],["js/sw/sw-toolbox.js","1ca0f60210ecd50f5b6b80ebc325e7c3"],["manifest.json","db6252f40efa46e750b4a4b217ff3484"]];
+var PrecacheConfig = [["css/main.css","eafa1bbc9196d60e010dd1cdd242c176"],["img/icon-fb.svg","5991b6173ac113723e01ee616ed64dd2"],["img/icon-twitter.svg","e98d74382482805d05147c009f069138"],["img/share.png","3daa2b9167151d87558c0fc2f7c12c43"],["index.html","58b6675ee9948277f3543ff36140a3f5"],["js/main.min.js","251c3c8e088ae17f05f077c62ac5031a"],["js/sw/runtime-caching.js","e3e34dcb62b5d62453b9215961585488"],["js/sw/sw-toolbox.js","1ca0f60210ecd50f5b6b80ebc325e7c3"],["manifest.json","db6252f40efa46e750b4a4b217ff3484"]];
 /* eslint-enable quotes, comma-spacing */
 var CacheNamePrefix = 'sw-precache-v1-web-starter-kit-' + (self.registration ? self.registration.scope : '') + '-';
 

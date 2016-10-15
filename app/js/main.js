@@ -83,8 +83,8 @@ import jQuery from 'jquery';
    * Creates a new entry in the Firebase database.
    * @param {string} email - The email of the pledge.
    * @param {string} reason - The motivation behind the pledge.
-   * @prarm {number} amount - The amount of the pledge per reason occurence.
-   * @param {firebase.Promise}
+   * @param {number} amount - The amount of the pledge per reason occurence.
+   * @return {firebase.Promise} - Can be used to know when the update is committed to the database.
    */
   function createPledge(email, reason, amount) {
     const data = {
@@ -92,7 +92,7 @@ import jQuery from 'jquery';
       reason: reason,
       amount: amount,
       timestamp: window.firebase.database.ServerValue.TIMESTAMP
-    }
+    };
     const newPostKey = database.ref().child('pledges').push().key;
 
     return window.firebase.auth().signInAnonymously().then(() => {
@@ -150,6 +150,9 @@ import jQuery from 'jquery';
       return false;
     }
 
+    // Track signup to GA
+    ga('send', 'event', 'signup', 'submit');
+
     // Submit the AJAX request and deal with its response.
     submissionInProgress = true;
     $form.find('.btn-submit').attr('disabled', 'disabled');
@@ -160,7 +163,7 @@ import jQuery from 'jquery';
       $submitButton.removeAttr('disabled');
       submissionInProgress = false;
       incrementPledgeCount();
-    }, (error) => {
+    }, error => {
       $('#server-error').removeClass('hidden');
       $submitButton.removeAttr('disabled');
       submissionInProgress = false;
@@ -171,6 +174,10 @@ import jQuery from 'jquery';
   // Handle Facebook Share clicks.
   $(document).on('click', '.share-fb', e => {
     e.preventDefault();
+
+    // Track share to GA
+    ga('send', 'event', 'share', 'click', 'facebook');
+
     const shareMessage = $(e.currentTarget).data('message');
     const shareUrl = $(e.currentTarget).data('url') || window.location;
 

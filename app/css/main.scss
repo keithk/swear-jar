@@ -172,3 +172,9 @@ p {
     @include position(absolute, 0 10px null null);
   }
 }
+
+#pledge-count-wrapper {
+    padding: 0 0 10px 10px;
+    color: white;
+    font-weight: bold;
+}

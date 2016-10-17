@@ -150,9 +150,6 @@ import jQuery from 'jquery';
       return false;
     }
 
-    // Track signup to GA
-    ga('send', 'event', 'signup', 'submit');
-
     // Submit the AJAX request and deal with its response.
     submissionInProgress = true;
     $form.find('.btn-submit').attr('disabled', 'disabled');
@@ -174,9 +171,6 @@ import jQuery from 'jquery';
   // Handle Facebook Share clicks.
   $(document).on('click', '.share-fb', e => {
     e.preventDefault();
-
-    // Track share to GA
-    ga('send', 'event', 'share', 'click', 'facebook');
 
     const shareMessage = $(e.currentTarget).data('message');
     const shareUrl = $(e.currentTarget).data('url') || window.location;

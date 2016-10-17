@@ -73,6 +73,12 @@ import jQuery from 'jquery';
   /** {firebase.database} Firebase database. */
   const database = window.firebase.database();
 
+  // Show/update pledge counter
+  window.firebase.database().ref('count').on('value', function(snapshot) {
+    $('#pledge-count').html(snapshot.val() + ' ');
+    $('#pledge-count-wrapper').removeClass('hidden');
+  });
+
   /**
    * Creates a new entry in the Firebase database.
    * @param {string} email - The email of the pledge.
@@ -91,6 +97,21 @@ import jQuery from 'jquery';
 
     return window.firebase.auth().signInAnonymously().then(() => {
       return database.ref(`pledges/${newPostKey}`).update(data);
+    });
+  }
+
+  /**
+   * Increments the pledge count stored in Firebase.
+   * We store this in a separate node so that we can allow read access to the count,
+   * but not the data itself.
+   * @return {firebase.Promise} - Can be used to know when the transaction is complete.
+   */
+  function incrementPledgeCount() {
+    return window.firebase.auth().signInAnonymously().then(() => {
+      return window.firebase.database().ref('count').transaction(
+        function(currentValue) {
+          return (currentValue || 0) + 1;
+        });
     });
   }
 
@@ -138,6 +159,7 @@ import jQuery from 'jquery';
       $('#email').blur();
       $submitButton.removeAttr('disabled');
       submissionInProgress = false;
+      incrementPledgeCount();
     }, error => {
       $('#server-error').removeClass('hidden');
       $submitButton.removeAttr('disabled');

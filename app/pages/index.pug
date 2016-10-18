@@ -39,7 +39,13 @@ html(lang='en-us')
       .container-fluid
         .row
           .col-xs-12
-            h1.main-header Donate a quarter to Hillary every time Trump tweets. #[img(src='/img/icon-twitter.svg', alt='')]
+            h1.main-header Donate a quarter to Hillary every time Trump ...
+              .dropdown
+                button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  | <span class="reason"></span> #[img(src='/img/dropdown-arrow.png', alt='')]
+                ul.dropdown-menu(aria-labelledby='dropdownMenuButton')
+                  li.dropdown-item tweets
+                  li.dropdown-item interrupts Hillary
         .row
           .col-xs-12.main-content
             form#signup
@@ -50,12 +56,12 @@ html(lang='en-us')
                   input#email.form-control(type='email', name='email', placeholder='Email address', required)
                 .form-submit
                   button.btn.btn-submit Pledge
-              input(type='hidden', name='reason', value='every time Trump tweets')
+              input(type='hidden', name='reason', value='tweets')
               input(type='hidden', name='amount', value='.25')
               p#invalid-email.form-message.bg-danger.hidden Please enter a valid email.
               p#server-error.form-message.bg-danger.hidden Something went wrong. Please try again.
             p
-              | Pledge a quarter each time Trump tweets. We'll tally up the tweets and remind you weekly. Unsubscribe at any time. Emails won't be used for any other purpose. No credit card info required; donate directly through #[a(href='https://www.hillaryclinton.com') www.hillaryclinton.com].
+              | Pledge a quarter each time Trump <span class="reason">tweets</span>. We'll tally up the tweets and remind you weekly. Unsubscribe at any time. Emails won't be used for any other purpose. No credit card info required; donate directly through #[a(href='https://www.hillaryclinton.com') www.hillaryclinton.com].
             p
               button.btn.btn-share.share-fb(type='button', data-url=siteUrl)
                 | #[img(src='/img/icon-fb.svg', alt='')] Share on Facebook
@@ -73,6 +79,8 @@ html(lang='en-us')
             | #[img(src='/img/icon-fb.svg', alt='')] Share on Facebook
         button.btn.btn-close.close-overlay &times;
 
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa', crossorigin='anonymous')
     script(src='https://www.gstatic.com/firebasejs/3.4.1/firebase.js')
     script(src='js/main.min.js')
 

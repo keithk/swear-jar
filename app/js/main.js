@@ -79,6 +79,14 @@ import jQuery from 'jquery';
     $('#pledge-count-wrapper').removeClass('hidden');
   });
 
+  // Dropdown
+  $(".second-choice").click(function(e){
+    var chosenAction = $(".chosen-action")[0].innerText;
+    var secondChoice = $(".second-choice")[0].innerText;
+    $(".chosen-action").text(secondChoice);
+    $(".second-choice").text(chosenAction);
+  });
+
   /**
    * Creates a new entry in the Firebase database.
    * @param {string} email - The email of the pledge.

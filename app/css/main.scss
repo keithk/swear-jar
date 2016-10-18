@@ -93,10 +93,12 @@ p {
           color: $color-blue-medium;
       }
   }
+
   .dropdown-item {
       font-size: 36px;
       padding: 5px 10px;
       color: $color-blue-medium;
+      cursor: pointer;
   }
 }
 

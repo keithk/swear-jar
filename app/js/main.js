@@ -83,7 +83,7 @@ import jQuery from 'jquery';
   let $form = $('form#signup');
   let selectedReasonFormField = $form.find('[name="reason"]');
   $('.dropdown-item').click(function(e) {
-    var reasonText = $(e.currentTarget)[0].innerText;
+    var reasonText = $(e.currentTarget).text();
 
     // Switch text in copy
     $('.reason').text(reasonText);

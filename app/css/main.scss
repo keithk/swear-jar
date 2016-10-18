@@ -3,6 +3,7 @@
 $color-black: #000;
 $color-blue: #215baa;
 $color-blue-light: #03a9e0;
+$color-blue-medium: #03a9e0;
 $color-grey-dark: #515151;
 $color-grey: #dbdfe2;
 $color-white: #fff;
@@ -78,6 +79,24 @@ p {
   img {
     height: .67em;
     vertical-align: baseline;
+  }
+
+  #dropdownMenuButton {
+      font-weight: $font-weight-bold;
+      font-size: 36px;
+      background-color: inherit;
+      padding: 0px;
+
+      &:hover,
+      &:active,
+      &:focus {
+          color: $color-blue-medium;
+      }
+  }
+  .dropdown-item {
+      font-size: 36px;
+      padding: 5px 10px;
+      color: $color-blue-medium;
   }
 }
 

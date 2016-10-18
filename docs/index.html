@@ -35,7 +35,14 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-xs-12">
-            <h1 class="main-header">Donate a quarter to Hillary every time Trump tweets. <img src="/img/icon-twitter.svg" alt=""></h1>
+            <h1 class="main-header">Donate a quarter to Hillary every time Trump ...
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">tweets &nbsp; &or;</button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <li class="dropdown-item">interrupts Hillary</li>
+                </ul>
+              </div>
+            </h1>
           </div>
         </div>
         <div class="row">
@@ -76,6 +83,8 @@
         <button class="btn btn-close close-overlay">&times;</button>
       </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
     <script src="js/main.min.js"></script>
     <!-- Load Facebook SDK for JavaScript-->

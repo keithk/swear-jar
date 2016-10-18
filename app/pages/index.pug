@@ -39,7 +39,12 @@ html(lang='en-us')
       .container-fluid
         .row
           .col-xs-12
-            h1.main-header Donate a quarter to Hillary every time Trump tweets. #[img(src='/img/icon-twitter.svg', alt='')]
+            h1.main-header Donate a quarter to Hillary every time Trump ...
+              .dropdown
+                button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  | tweets &nbsp; &or;
+                ul.dropdown-menu(aria-labelledby='dropdownMenuButton')
+                  li.dropdown-item interrupts Hillary
         .row
           .col-xs-12.main-content
             form#signup
@@ -73,6 +78,8 @@ html(lang='en-us')
             | #[img(src='/img/icon-fb.svg', alt='')] Share on Facebook
         button.btn.btn-close.close-overlay &times;
 
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa', crossorigin='anonymous')
     script(src='https://www.gstatic.com/firebasejs/3.4.1/firebase.js')
     script(src='js/main.min.js')
 

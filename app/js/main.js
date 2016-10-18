@@ -80,11 +80,23 @@ import jQuery from 'jquery';
   });
 
   // Dropdown
-  $(".second-choice").click(function(e){
-    var chosenAction = $(".chosen-action")[0].innerText;
-    var secondChoice = $(".second-choice")[0].innerText;
-    $(".chosen-action").text(secondChoice);
-    $(".second-choice").text(chosenAction);
+  let $form = $('form#signup');
+  let $selectedReason = $('#selected-reason');
+  let $alternateReason = $('#alternate-reason');
+  let selectedReasonFormField = $form.find('[name="reason"]');
+  $alternateReason.click(function(e) {
+
+    // Switch text of dropdown button and option
+    var selectedReasonText = $selectedReason[0].innerText;
+    var alternateReasonText = $alternateReason[0].innerText;
+    $alternateReason.text(selectedReasonText);
+    $selectedReason.text(alternateReasonText);
+
+    // Switch text in copy
+    $('.reason').text(alternateReasonText);
+
+    // update form value
+    selectedReasonFormField.val(alternateReasonText);
   });
 
   /**

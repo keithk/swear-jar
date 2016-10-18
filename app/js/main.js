@@ -81,22 +81,15 @@ import jQuery from 'jquery';
 
   // Dropdown
   let $form = $('form#signup');
-  let $selectedReason = $('#selected-reason');
-  let $alternateReason = $('#alternate-reason');
   let selectedReasonFormField = $form.find('[name="reason"]');
-  $alternateReason.click(function(e) {
-
-    // Switch text of dropdown button and option
-    var selectedReasonText = $selectedReason[0].innerText;
-    var alternateReasonText = $alternateReason[0].innerText;
-    $alternateReason.text(selectedReasonText);
-    $selectedReason.text(alternateReasonText);
+  $('.dropdown-item').click(function(e) {
+    var reasonText = $(e.currentTarget)[0].innerText;
 
     // Switch text in copy
-    $('.reason').text(alternateReasonText);
+    $('.reason').text(reasonText);
 
     // update form value
-    selectedReasonFormField.val(alternateReasonText);
+    selectedReasonFormField.val(reasonText);
   });
 
   /**

@@ -83,7 +83,7 @@ p {
 
   #dropdownMenuButton {
       font-weight: $font-weight-bold;
-      font-size: 36px;
+      font-size: $font-size-jumbo;
       background-color: inherit;
       padding: 0px;
 
@@ -91,6 +91,11 @@ p {
       &:active,
       &:focus {
           color: $color-blue-medium;
+      }
+
+      img {
+          height: 50px;
+          vertical-align: middle;
       }
   }
 
